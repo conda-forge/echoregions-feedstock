@@ -1,5 +1,5 @@
 {% set name = "echoregions" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/echoregions-{{ version }}.tar.gz
-  sha256: 882564517ce2b5e85d7a308df1a36d063d5836cac263b602a50b7c112b698444
+  sha256: 0b820644276ff3d8f64921f7a2c550266ce5c9f88dad271035deb3c8f3cd9284
 
 build:
   noarch: python
