@@ -6,24 +6,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/echoregions-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/echoregions-{{ version }}.tar.gz
   sha256: 0b820644276ff3d8f64921f7a2c550266ce5c9f88dad271035deb3c8f3cd9284
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools >=48
     - setuptools-scm >=4,<6
     - setuptools_scm_git_archive
     - wheel >=0.29.0
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - numpy >=1.21.0
     - pandas >=2.0.0
     - matplotlib-base
@@ -40,6 +40,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/OSOceanAcoustics/echoregions
