@@ -144,4 +144,5 @@ Feedstock Maintainers
 =====================
 
 * [@ctuguinay](https://github.com/ctuguinay/)
+* [@leewujung](https://github.com/leewujung/)
 
