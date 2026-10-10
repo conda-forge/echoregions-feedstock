@@ -1,39 +1,40 @@
 {% set name = "echoregions" %}
-{% set version = "0.2.3" %}
+{% set version = "0.2.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/echoregions-{{ version }}.tar.gz
-  sha256: ff6c2489321b2e12c51a922476255e9ac906484282376826c55e12ccb3203fb0
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/echoregions-{{ version }}.tar.gz
+  sha256: b69bd8587b5e69b490049b036b657cfcfed3b77139caec7c23dbed192df0edd4
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: {{ PYTHON }} -m pip install . -vv --no-deps
   number: 0
 
 requirements:
   host:
     - python {{ python_min }}
-    - setuptools >=48
+    - setuptools <=81
     - setuptools-scm >=4,<6
     - setuptools_scm_git_archive
     - wheel >=0.29.0
     - pip
   run:
-    - python >={{ python_min }},<3.13
+    - python >={{ python_min }},<3.15
     - numpy >=1.21.0
     - pandas >=2.0.0
     - matplotlib-base
     - regionmask >=0.8.0
     - shapely >=2.0.0
-    - zarr >=2,<3
+    - zarr >=3
     - netcdf4
     - scipy <1.15.2
     - xarray >=2024.11.0
     - dask
+    - opencv
 test:
   imports:
     - echoregions
