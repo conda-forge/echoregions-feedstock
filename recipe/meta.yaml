@@ -34,7 +34,7 @@ requirements:
     - scipy <1.15.2
     - xarray >=2024.11.0
     - dask
-    - opencv-python
+    - opencv
 test:
   imports:
     - echoregions
